@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "carrocels",
+  "info": {
+    "singularName": "carrocel",
+    "pluralName": "carrocels",
+    "displayName": "Carrocel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Imagens_Desktop": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Imagens_Mobile": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
