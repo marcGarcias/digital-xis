@@ -1,0 +1,96 @@
+:host {
+  --header-shadow-height: 12px;
+  --transition-speed: 0.35s;
+  --header-height: 64px;
+}
+
+.header-main {
+  height: var(--header-height);
+  z-index: 40;
+  background-color: var(--color-main-black);
+  position: sticky;
+  top: 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header-container.internal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-wrapper {
+  cursor: pointer;
+}
+
+.header-main::after {
+  content: "";
+  position: absolute;
+  bottom: calc(var(--header-shadow-height) * -1);
+  left: 0;
+  width: 100%;
+  height: var(--header-shadow-height);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  pointer-events: none;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(75vw, 400px);
+  height: 100vh;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
+  transform: translateX(100%);
+  transition: transform var(--transition-speed) ease;
+  z-index: 30;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .header-container:not(.internal) {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .header-container:not(.internal) app-header-logo {
+    justify-self: start;
+  }
+
+  .header-container:not(.internal) app-desktop-nav-menu {
+    justify-self: center;
+  }
+
+  .header-container:not(.internal) app-media-button {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 767px) {
+  app-media-button {
+    display: none;
+  }
+}

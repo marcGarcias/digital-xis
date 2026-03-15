@@ -1,0 +1,323 @@
+/* =========================
+CATEGORY TITLE
+========================= */
+
+/* =========================
+CAROUSEL
+========================= */
+.reviews-carousel {
+    position: relative;
+    width: 90vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    min-height: 260px;
+}
+
+.reviews-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.reviews-track {
+    display: flex;
+    transition: transform .4s;
+}
+
+.review-page {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+/* =========================
+CARD
+========================= */
+.review-card {
+    background: var(--color-dark-gray);
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    height: 240px;
+}
+
+/* TEXTO RESUMIDO */
+.review-comment {
+    font-size: 18px;
+    color: white;
+    overflow: hidden;
+    display: -webkit-box;
+
+    /* padrão moderno */
+    line-clamp: 5;
+
+    /* prefixo WebKit para compatibilidade com Chrome/Safari */
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+/* NOME */
+.review-user {
+    margin-top: 6px;
+    font-weight: 600;
+    color: var(--color-brand);
+}
+
+.read-button {
+    background-color: var(--color-brand);
+    color: var(--color-main-white);
+    font-weight: 600;
+
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+    border-radius: var(--radius-md);
+    margin-top: auto;
+    background-color: var(--color-brand);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+
+    /* Preparar para animação */
+    transition:
+        background-color 0.25s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.read-button:hover {
+    background-color: #ffbb00
+}
+
+/* Quando o botão é clicado */
+.read-button:active {
+    transform: scale(0.95);
+    /* botão “afunda” levemente */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    /* sombra mais intensa */
+}
+
+/* =========================
+DOTS
+========================= */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    pointer-events: none;
+    background: #aaa;
+    /* Increases touch target to 44px (12 + 16*2) */
+    background-clip: content-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dot.active {
+    background: var(--color-brand);
+}
+
+/* =========================
+OVERLAY MOBILE
+========================= */
+.review-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 10px;
+}
+
+.review-arrow {
+    margin: 10px;
+    max-width: 44px;
+    height: auto;
+}
+
+/* CARD GRANDE MOBILE / ADAPTATIVO */
+.review-overlay-card {
+    background: var(--color-dark-gray);
+    width: 100%;
+    /* height removido para ficar adaptativo */
+    max-height: 85vh;
+    border-radius: 12px;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TEXTO COMPLETO */
+.overlay-comment {
+    text-align: left;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+}
+
+/* NOME */
+.overlay-user {
+    text-align: center;
+    margin-top: 12px;
+    font-weight: 600;
+    color: var(--color-brand);
+}
+
+/* =========================
+TABLET
+========================= */
+@media(min-width:768px) {
+    .review-card {
+        width: 100%;
+    }
+}
+
+/* =========================
+DESKTOP
+========================= */
+@media(min-width:1024px) {
+
+
+    .reviews-carousel.desktop {
+        overflow: hidden;
+        border-radius: 10px;
+        border-inline: 1px solid var(--color-brand);
+    }
+
+    /* SCROLL INFINITO */
+    .reviews-carousel.desktop .reviews-track {
+        gap: 16px;
+        animation: scroll-left 40s linear infinite;
+        width: max-content;
+    }
+
+    /* OVERLAY DESKTOP */
+    .review-overlay-card {
+        width: 40vw;
+        max-width: 700px;
+        max-height: 60vh;
+        /* altura fixa removida para ficar adaptativo */
+    }
+
+    .nav {
+        display: none;
+    }
+}
+
+/* =========================
+ANIMAÇÃO
+========================= */
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* SKELETON */
+.reviews-skeleton {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    overflow: hidden;
+    padding: 20px;
+    width: 90vw;
+    margin: auto;
+}
+
+.skeleton-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.skeleton-comment {
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-user {
+    width: 60%;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-button {
+    width: 100px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-md);
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-skeleton .shimmer {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 204, 0, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@media(max-width: 767px) {
+    .reviews-skeleton {
+        flex-wrap: nowrap;
+    }
+
+    .skeleton-card:not(:first-child) {
+        display: none;
+        /* Show only one on mobile for simplicity */
+    }
+}

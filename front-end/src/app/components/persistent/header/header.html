@@ -1,0 +1,38 @@
+<header class="header-main">
+  <div class="header-container" [class.internal]="!isHome">
+
+    <div class="logo-wrapper" (click)="goHome()">
+      <app-colorized-logo></app-colorized-logo>
+    </div>
+
+    @if (isHome) {
+
+      <app-desktop-nav-menu
+        (scroll)="handleScroll($event)">
+      </app-desktop-nav-menu>
+
+      <app-media-button></app-media-button>
+
+      <app-hamburger-button
+        [open]="isMenuOpen"
+        (toggle)="toggleMenu()">
+      </app-hamburger-button>
+
+    }
+
+  </div>
+
+  @if (isHome && isMenuOpen) {
+    <div class="backdrop" (click)="closeMenu()"></div>
+  }
+
+  @if (isHome) {
+    <nav class="mobile-nav" [class.open]="isMenuOpen">
+      <app-mobile-nav-menu
+        (close)="closeMenu()"
+        (scroll)="handleScroll($event)">
+      </app-mobile-nav-menu>
+    </nav>
+  }
+
+</header>

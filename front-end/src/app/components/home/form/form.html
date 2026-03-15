@@ -1,0 +1,122 @@
+<section class="contact-container">
+  <h2 class="category-title">Vamos conversar sobre seu crescimento</h2>
+
+  <app-media-button></app-media-button>
+
+  <ng-container *ngIf="!loading; else skeleton">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+
+      <label for="name">Nome</label>
+      <input id="name" autofocus="1" type="text" placeholder="Qual o seu nome?" formControlName="name" />
+
+      <label for="company">Empresa</label>
+      <div class="input-with-checkbox">
+        <input id="company" type="text" placeholder="Nome da empresa" formControlName="company" />
+
+        <div class="checkbox-inline">
+          <input id="noCompany" type="checkbox" formControlName="noCompany" />
+          <label for="noCompany">Não possuo empresa</label>
+        </div>
+      </div>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Digite seu melhor e-mail" formControlName="email" />
+      <small *ngIf="emailInvalid">
+        Informe um e-mail válido
+      </small>
+
+      <label for="phone">Telefone</label>
+      <input id="phone" type="tel" placeholder="(11) 99999-9999" formControlName="phone" />
+      <small *ngIf="phoneInvalid">
+        Informe um telefone válido
+      </small>
+
+      <label for="instagram">Instagram</label>
+      <div class="input-with-checkbox">
+        <input id="instagram" type="text" placeholder="@seuinstagram" formControlName="instagram" />
+
+        <div class="checkbox-inline">
+          <input id="noInstagram" type="checkbox" formControlName="noInstagram" />
+          <label for="noInstagram">Não possuo Instagram</label>
+        </div>
+      </div>
+
+      <label for="subject">Assunto</label>
+      <select id="subject" formControlName="subject">
+        <option value="">Selecione um assunto</option>
+        <option *ngFor="let subject of subjects" [value]="subject">
+          {{ subject }}
+        </option>
+      </select>
+
+      <label for="source">Como nos conheceu?</label>
+      <select id="source" formControlName="source">
+        <option value="">Selecione uma opção</option>
+        <option *ngFor="let source of sources" [value]="source">
+          {{ source }}
+        </option>
+      </select>
+
+      <label for="message">Como podemos ajudar?</label>
+      <textarea id="message" rows="4" placeholder="Descreva seu problema" formControlName="message"></textarea>
+
+
+
+      <div class="privacy-container">
+        <div class="checkbox-privacy">
+          <input id="privacyAccepted" type="checkbox" formControlName="privacyAccepted" />
+
+          <label for="privacyAccepted">
+            Li e aceito a
+            <a id="privacy-policy" routerLink="/politica-de-privacidade" target="_blank">
+              Política de Privacidade
+            </a>
+          </label>
+        </div>
+
+        <small *ngIf="privacyInvalid">
+          Você precisa aceitar a Política de Privacidade para continuar.
+        </small>
+      </div>
+
+      <div id="turnstile-container" class="turnstile-container"></div>
+
+      <button type="submit" class="submit-button"
+        [disabled]="contactForm.invalid || isSubmitting || submitStatus !== 'idle'" [ngClass]="submitStatus">
+        <span *ngIf="submitStatus === 'idle' && !isSubmitting">
+          Enviar
+        </span>
+
+        <span *ngIf="isSubmitting" class="spinner"></span>
+
+        <span *ngIf="submitStatus === 'success'">
+          ✓ Enviado com sucesso!
+        </span>
+
+        <span *ngIf="submitStatus === 'error'">
+          Houve um erro.
+        </span>
+      </button>
+    </form>
+  </ng-container>
+
+  <ng-template #skeleton>
+    <div class="form-skeleton">
+      <div class="skeleton-field" *ngFor="let i of [1,2,3,4,5,6,7,8]">
+        <div class="skeleton-label"></div>
+        <div class="skeleton-input">
+          <div class="shimmer"></div>
+        </div>
+      </div>
+      <div class="skeleton-privacy">
+        <div class="skeleton-checkbox"></div>
+        <div class="skeleton-text">
+          <div class="shimmer"></div>
+        </div>
+      </div>
+      <div class="skeleton-button">
+        <div class="shimmer"></div>
+      </div>
+    </div>
+  </ng-template>
+</section>

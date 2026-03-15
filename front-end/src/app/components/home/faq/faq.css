@@ -1,0 +1,116 @@
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  max-width: 720px;
+  margin: 0 auto;
+  background-color: var(--color-light-gray);
+  box-shadow: 0 3px 5px -1px var(--color-dark-gray);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  border-bottom: 2px solid var(--color-brand);
+  justify-content: center;
+}
+
+
+.faq-item {
+  background-color: var(--color-dark-gray);
+  box-shadow: 0 3px 5px -1px var(--color-dark-gray);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family-text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+  font-weight: 600;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  color: var(--color-main-white);
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: var(--font-family-text);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+
+  .category-text {
+    font-size: 1.6rem;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .faq-container {
+    width: 45vw;
+    margin: 15px 2.5%;
+    margin-bottom: auto;
+    border-right: 2px solid var(--color-brand);
+    border-bottom: none;
+  }
+
+}
+
+/* SKELETON */
+.faq-skeleton {
+  width: 100%;
+}
+
+.skeleton-item {
+  background-color: #ffffff;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  height: 55px;
+  /* Altura similar ao faq-question original */
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton-question {
+  width: 100%;
+  height: 100%;
+}
+
+.faq-skeleton .shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 204, 0, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
