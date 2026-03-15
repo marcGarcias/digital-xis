@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "infos",
+  "info": {
+    "singularName": "info",
+    "pluralName": "infos",
+    "displayName": "Info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Instagram": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "Email": {
+      "type": "email",
+      "required": false,
+      "unique": true
+    },
+    "CNPJ": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "Ano_do_Copyrights": {
+      "type": "biginteger",
+      "required": false
+    },
+    "Whatsapp": {
+      "type": "string"
+    }
+  }
+}
