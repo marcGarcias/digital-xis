@@ -1,0 +1,19 @@
+.contact-faq-wrapper {
+  margin: 15px 0;
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  .contact-faq-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+  }
+
+  app-form,
+  app-faq {
+    display: flex;
+    justify-content: center;
+  }
+}
