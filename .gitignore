@@ -1,0 +1,84 @@
+# ############################
+# OS X / Linux / Windows
+# ############################
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+*~
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+# ############################
+# IDEs & Tools
+# ############################
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+*.swn
+*.tsbuildinfo
+.eslintcache
+
+# ############################
+# Logs, Temp, and Databases
+# ############################
+.tmp/
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+
+# ############################
+# [BACK-END] Spring Boot / Maven
+# ############################
+back-end/target/
+back-end/.idea/
+back-end/**/*.iml
+# Keep Maven Wrapper
+!back-end/.mvn/
+!back-end/mvnw
+!back-end/mvnw.cmd
+
+# ############################
+# [FRONT-END] Angular
+# ############################
+front-end/node_modules/
+front-end/.angular/
+front-end/dist/
+front-end/.vercel/
+front-end/*.tsbuildinfo
+
+# ############################
+# [CMS] Strapi
+# ############################
+cms-strapi/.env
+cms-strapi/.strapi/
+cms-strapi/dist/
+cms-strapi/build/
+cms-strapi/.strapi-updater.json
+cms-strapi/.strapi-cloud.json
+cms-strapi/public/uploads/*
+!cms-strapi/public/uploads/.gitkeep
+# Keep Strapi generated types
+!cms-strapi/types/generated/
+
+# ############################
+# Project Global
+# ############################
+node_modules/
+dist/
+build/
+coverage/
+lcov.info
+w.cmd
