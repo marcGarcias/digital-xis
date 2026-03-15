@@ -1,0 +1,13 @@
+.category-title {
+    text-align: center;
+    font-size: 28px;
+    font-family: var(--font-family-text);
+
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-brand);
+    text-decoration-thickness: 0.7px;
+    text-underline-offset: 3px;
+
+    margin: 5px;
+    padding: 5px;
+}

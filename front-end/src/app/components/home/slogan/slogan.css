@@ -1,0 +1,96 @@
+.title-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    padding: var(--spacing-sm);
+    overflow: hidden;
+}
+
+.main-title {
+    position: relative;
+    font-family: var(--font-family-title);
+    font-size: 20px;
+    text-transform: capitalize;
+    color: var(--color-main-white);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: titleReveal 0.8s ease-out forwards;
+}
+
+/* faixa animada */
+.main-title::after {
+    content: "";
+    position: absolute;
+    left: -10%;
+    bottom: 4px;
+    width: 0%;
+    height: 8px;
+    background: var(--color-brand);
+    z-index: -1;
+    border-radius: var(--radius-md);
+    animation: brandHighlight 0.9s ease-out 0.3s forwards;
+}
+
+/* entrada do texto */
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* animação da cor da marca */
+@keyframes brandHighlight {
+    0% {
+        width: 0%;
+        height: 15%;
+        left: -10%;
+    }
+    60% {
+        width: 110%;
+        height: 10%;
+        left: -5%;
+    }
+    100% {
+        width: 90%;
+        height: 5%;
+        left: 5%;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    @keyframes brandHighlight {
+        0% {
+            width: 0%;
+            height: 20%;
+            left: -10%;
+        }
+        60% {
+            width: 110%;
+            height: 15%;
+            left: -5%;
+        }
+        100% {
+            width: 60%;
+            height: 10%;
+            left: 20%;
+        }
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+    .main-title {
+        font-size: 3rem;
+        margin: 30px 0;
+    }
+}

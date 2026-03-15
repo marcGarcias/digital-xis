@@ -1,0 +1,14 @@
+.header-logo {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 2px 0;
+    box-sizing: border-box;
+}
+
+.header-logo img,
+.header-logo svg {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+}

@@ -1,0 +1,31 @@
+:host {
+    display: block;
+}
+
+a img {
+    max-width: 36px;
+}
+
+.media-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.media-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.media-button:hover {
+    transform: scale(1.15);
+}
+
+.media-button:active {
+    transform: scale(0.95);
+}

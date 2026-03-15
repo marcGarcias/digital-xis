@@ -1,0 +1,156 @@
+:host {
+  --footer-height: 25vw;
+}
+
+.footer-container {
+  width: 100vw;
+  background-color: var(--color-main-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.footer-main {
+  width: 90vw;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-top {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: var(--spacing-sm);
+}
+
+app-grayscale-logo {
+  flex: 0 0 auto;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+}
+
+.info-title {
+  color: var(--color-main-white);
+  font-size: 15px;
+  font-family: var(--font-family-text);
+  margin: 10px 0 0 20px;
+}
+
+.footer-info-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-info li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-main-white);
+  font-size: 13px;
+  font-family: var(--font-family-text);
+  letter-spacing: 0.8px;
+}
+
+.footer-info li img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.white-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-main-white);
+  opacity: 0.3;
+  margin-top: var(--spacing-md);
+}
+
+.cnpj-number {
+  color: var(--color-main-white);
+  font-size: 12px;
+  font-family: var(--font-family-text);
+  margin: 10px 0;
+}
+
+.copyrights {
+  color: var(--color-main-white);
+  font-size: 14px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer-info li a:hover {
+  color: var(--color-brand);
+  transition: 0.9s;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  :host {
+    --footer-height: 15vw;
+  }
+
+  .footer-top {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-info {
+    align-items: center;
+    width: 100%;
+  }
+
+  .info-title {
+    margin: 10px 30px;
+  }
+
+  app-dev-credit {
+    position: absolute;
+    bottom: 8px;
+    right: 5%;
+    margin: 0 0;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1200px) {
+  :host {
+    --footer-height: 5vw;
+  }
+
+  .info-title {
+    font-size: 18px;
+  }
+
+  .footer-info li {
+    font-size: 16px;
+    gap: var(--spacing-sm);
+  }
+
+  .cnpj-number {
+    font-size: 16px;
+  }
+}
