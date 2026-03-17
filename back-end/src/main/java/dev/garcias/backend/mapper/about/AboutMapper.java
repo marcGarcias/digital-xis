@@ -1,7 +1,6 @@
 package dev.garcias.backend.mapper.about;
 
 import dev.garcias.backend.dto.cms.CMSAboutDTO;
-import dev.garcias.backend.dto.cms.CMSRichTextChildDTO;
 import dev.garcias.backend.dto.cms.CMSRichTextDTO;
 import dev.garcias.backend.dto.response.about.AboutResponse;
 import dev.garcias.backend.mapper.shared.ImageMapper;
