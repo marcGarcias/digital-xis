@@ -70,8 +70,8 @@ cms-strapi/.strapi-updater.json
 cms-strapi/.strapi-cloud.json
 cms-strapi/public/uploads/*
 !cms-strapi/public/uploads/.gitkeep
-# Keep Strapi generated types
-!cms-strapi/types/generated/
+# Strapi generated types
+cms-strapi/types/generated/
 
 # ############################
 # Project Global
