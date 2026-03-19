@@ -54,7 +54,7 @@ public class ProxyController {
 
         } catch (WebClientResponseException ex) {
             log.error("Error retrieving resource in CMS: path={}, status={}", path, ex.getStatusCode());
-            response.sendError(HttpServletResponse.SC_BAD_GATEWAY, "Error retrieving resource in CMS.");
+            response.sendError(ex.getStatusCode().value(), "Error retrieving resource in CMS.");
         } catch (Exception ex) {
             log.error("Unexpected error in upload proxy: path={}", path, ex);
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Internal server error.");
