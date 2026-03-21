@@ -1,4 +1,4 @@
-package dev.garcias.backend.service;
+package dev.garcias.backend.service.form;
 
 import dev.garcias.backend.dto.request.ContactRequest;
 import org.springframework.beans.factory.annotation.Value;

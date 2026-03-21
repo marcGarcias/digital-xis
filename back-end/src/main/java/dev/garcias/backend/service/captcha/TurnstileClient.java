@@ -1,11 +1,11 @@
-package dev.garcias.backend.service;
+package dev.garcias.backend.service.captcha;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -14,8 +14,8 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Slf4j
-@Service
-public class CaptchaService {
+@Component
+public class TurnstileClient {
 
     private static final String VERIFY_URL =
             "https://challenges.cloudflare.com/turnstile/v0/siteverify";
@@ -23,7 +23,7 @@ public class CaptchaService {
     private final WebClient webClient;
     private final String secretKey;
 
-    public CaptchaService(
+    public TurnstileClient(
             WebClient.Builder webClientBuilder,
             @Value("${cloudflare.turnstile.secret-key}") String secretKey
     ) {
@@ -31,21 +31,7 @@ public class CaptchaService {
         this.secretKey = secretKey;
     }
 
-    public void validate(String token) {
-        if (token == null || token.isBlank()) {
-            throw new IllegalArgumentException("Captcha token not found");
-        }
-
-        CaptchaResponse response = callTurnstile(token);
-
-        if (response == null || !Boolean.TRUE.equals(response.success())) {
-            log.warn("Invalid Turnstile. Errors: {}",
-                    response != null ? response.errorCodes() : "null");
-            throw new IllegalArgumentException("Invalid or expired security verification");
-        }
-    }
-
-    private CaptchaResponse callTurnstile(String token) {
+    public CaptchaResponse send(String token) {
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
         form.add("secret", secretKey);
         form.add("response", token);
@@ -61,11 +47,13 @@ public class CaptchaService {
         } catch (Exception ex) {
             log.error("Error communicating with Cloudflare Turnstile", ex);
             throw new ResponseStatusException(
-                    HttpStatus.BAD_GATEWAY, "Failed to validate security verification.");
+                    HttpStatus.BAD_GATEWAY,
+                    "Failed to validate security verification."
+            );
         }
     }
 
-    private record CaptchaResponse(
+    public record CaptchaResponse(
             boolean success,
             @JsonProperty("error-codes") List<String> errorCodes
     ) {}

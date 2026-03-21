@@ -6,7 +6,7 @@ import dev.garcias.backend.dto.response.faq.FaqResponse;
 import dev.garcias.backend.dto.response.info.InfoResponse;
 import dev.garcias.backend.dto.response.review.ReviewResponse;
 import dev.garcias.backend.exception.cms.CmsErrorHandler;
-import dev.garcias.backend.service.CMSService;
+import dev.garcias.backend.service.cms.CMSService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
