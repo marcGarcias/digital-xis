@@ -1,7 +1,7 @@
 package dev.garcias.backend.controller;
 
 import dev.garcias.backend.dto.request.ContactRequest;
-import dev.garcias.backend.service.ContactService;
+import dev.garcias.backend.service.form.ContactService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

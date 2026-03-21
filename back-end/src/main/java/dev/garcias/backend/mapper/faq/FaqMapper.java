@@ -1,4 +1,4 @@
-package dev.garcias.backend.mapper;
+package dev.garcias.backend.mapper.faq;
 
 import dev.garcias.backend.dto.cms.CMSFaqDTO;
 import dev.garcias.backend.dto.response.faq.FaqResponse;

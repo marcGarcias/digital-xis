@@ -1,6 +1,7 @@
-package dev.garcias.backend.service;
+package dev.garcias.backend.service.form;
 
 import dev.garcias.backend.dto.request.ContactRequest;
+import dev.garcias.backend.service.captcha.CaptchaService;
 import org.springframework.stereotype.Service;
 
 @Service
