@@ -1,5 +1,9 @@
 package dev.garcias.backend.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +19,7 @@ import java.io.IOException;
 @Slf4j
 @RestController
 @RequestMapping("/uploads")
+@Tag(name = "Proxy", description = "Provides endpoints for proxying requests to external services, such as the CMS's upload directory.")
 public class ProxyController {
 
     private static final String DEFAULT_CONTENT_TYPE = "application/octet-stream";
@@ -31,6 +36,15 @@ public class ProxyController {
     }
 
     @GetMapping("/**")
+    @Operation(
+            summary = "Proxy CMS uploads",
+            description = "Proxies file requests directly to the CMS base URL for static assets."
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Resource retrieved successfully."),
+            @ApiResponse(responseCode = "404", description = "Resource not found in CMS."),
+            @ApiResponse(responseCode = "500", description = "Internal server error.")
+    })
     public void proxyUploads(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String path = request.getRequestURI();
 

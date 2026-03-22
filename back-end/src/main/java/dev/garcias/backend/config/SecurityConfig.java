@@ -29,7 +29,8 @@ public class SecurityConfig {
                                 "/api/content/review",
                                 "/api/content/faq",
                                 "/api/content/info",
-                                "/uploads/**"
+                                "/uploads/**",
+                                "/v3/api-docs/**", "swagger-ui/**", "swagger/ui.html"
                         ).permitAll()
                         .anyRequest().denyAll()
                 );
