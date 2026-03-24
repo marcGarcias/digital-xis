@@ -18,10 +18,6 @@ public class StrapiClient {
         this.webClient = builder.baseUrl(baseUrl).build();
     }
 
-    public StrapiClient(WebClient webClient) {
-        this.webClient = webClient;
-    }
-
     public Mono<CMSSingleResponseWrapper<CMSCarouselDTO>> getCarousel() {
         return webClient.get()
                 .uri("/api/carrocel?populate=*")
