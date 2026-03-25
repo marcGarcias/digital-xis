@@ -14,7 +14,7 @@ public class StrapiClient {
     private final WebClient webClient;
 
     public StrapiClient(WebClient.Builder builder,
-                     @Value("${cms.base-url}") String baseUrl) {
+                        @Value("${cms.base-url}") String baseUrl) {
         this.webClient = builder.baseUrl(baseUrl).build();
     }
 

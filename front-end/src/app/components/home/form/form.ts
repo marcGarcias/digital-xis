@@ -37,6 +37,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
     'Tráfego pago',
     'Identidade visual',
     'Consultoria',
+    'Gestão de e-commerce',
     'Outro'
   ];
 
