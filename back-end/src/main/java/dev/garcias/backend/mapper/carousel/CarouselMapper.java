@@ -1,6 +1,5 @@
 package dev.garcias.backend.mapper.carousel;
 
-import dev.garcias.backend.dto.cms.CMSImageDTO;
 import dev.garcias.backend.dto.cms.CMSCarouselDTO;
 import dev.garcias.backend.dto.response.carousel.CarouselResponse;
 import dev.garcias.backend.mapper.shared.ImageMapper;

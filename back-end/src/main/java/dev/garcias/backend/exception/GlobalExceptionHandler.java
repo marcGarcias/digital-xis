@@ -12,6 +12,9 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -84,7 +87,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiError> handleGenericException(
             Exception ex) {
 
-        ex.printStackTrace(); // temporário para debug
+        log.error("Unhandled exception encountered", ex);
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ApiError.of(HttpStatus.INTERNAL_SERVER_ERROR, "Internal server error."));

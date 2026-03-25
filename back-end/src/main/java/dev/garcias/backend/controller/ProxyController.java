@@ -48,6 +48,13 @@ public class ProxyController {
     public void proxyUploads(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String path = request.getRequestURI();
 
+        // Segurança contra Path Traversal e SSRF
+        if (path.contains("..") || path.contains("%2e") || path.contains("%2E") || !path.startsWith("/uploads/")) {
+            log.warn("Tentativa de acesso invalido ou path traversal interceptada no proxy: {}", path);
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid path requested.");
+            return;
+        }
+
         try {
             byte[] bytes = webClient.get()
                     .uri(path)

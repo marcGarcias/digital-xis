@@ -13,17 +13,25 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 public class RateLimitFilter implements Filter {
 
-    private final Map<String, Bucket> buckets = new ConcurrentHashMap<>();
+    private final Map<String, Bucket> contactBuckets = new ConcurrentHashMap<>();
+    private final Map<String, Bucket> contentBuckets = new ConcurrentHashMap<>();
 
-    private Bucket createNewBucket() {
+    private Bucket createContactBucket() {
         Bandwidth limit = Bandwidth.classic(5, Refill.greedy(5, Duration.ofMinutes(1)));
-        return Bucket.builder()
-                .addLimit(limit)
-                .build();
+        return Bucket.builder().addLimit(limit).build();
     }
 
-    private Bucket resolveBucket(String ip) {
-        return buckets.computeIfAbsent(ip, k -> createNewBucket());
+    private Bucket createContentBucket() {
+        Bandwidth limit = Bandwidth.classic(60, Refill.greedy(60, Duration.ofMinutes(1)));
+        return Bucket.builder().addLimit(limit).build();
+    }
+
+    private Bucket resolveContactBucket(String ip) {
+        return contactBuckets.computeIfAbsent(ip, k -> createContactBucket());
+    }
+
+    private Bucket resolveContentBucket(String ip) {
+        return contentBuckets.computeIfAbsent(ip, k -> createContentBucket());
     }
 
     @Override
@@ -35,23 +43,31 @@ public class RateLimitFilter implements Filter {
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
+        String path = httpRequest.getRequestURI();
+        String ip = httpRequest.getRemoteAddr();
 
-        if (httpRequest.getRequestURI().equals("/api/contact")
-                && httpRequest.getMethod().equals("POST")) {
-
-            String ip = httpRequest.getRemoteAddr();
-            Bucket bucket = resolveBucket(ip);
-
+        if (path.equals("/api/contact") && httpRequest.getMethod().equals("POST")) {
+            Bucket bucket = resolveContactBucket(ip);
             if (!bucket.tryConsume(1)) {
-                httpResponse.setStatus(429);
-                httpResponse.setContentType("application/json");
-                httpResponse.getWriter().write("""
-                        {"success": false, "message": "Muitas requisicoes. Tente novamente mais tarde."}
-                        """);
+                sendRateLimitError(httpResponse);
+                return;
+            }
+        } else if (path.startsWith("/api/content/") || path.startsWith("/uploads/")) {
+            Bucket bucket = resolveContentBucket(ip);
+            if (!bucket.tryConsume(1)) {
+                sendRateLimitError(httpResponse);
                 return;
             }
         }
 
         chain.doFilter(request, response);
+    }
+
+    private void sendRateLimitError(HttpServletResponse httpResponse) throws IOException {
+        httpResponse.setStatus(429);
+        httpResponse.setContentType("application/json");
+        httpResponse.getWriter().write("""
+                {"success": false, "message": "Muitas requisicoes. Tente novamente mais tarde."}
+                """);
     }
 }
