@@ -41,8 +41,8 @@ export class App {
     }
 
     console.log(
-      "%cDeveloped by Marcelo Garcias \n%chttps://marcelogarcias.dev\n%cdev.garcias@proton.me",
-      "font-size:14px;font-weight:bold;color:#ffe8b7;",
+      "%cDeveloped by Marcelo Garcias \n%chttps://marcelogarcias.dev.br\n%cdev.garcias@proton.me",
+      "font-size:14px;font-weight:bold;color:#c9a84c;",
       "color:#888;",
       "color:#888;"
     );
