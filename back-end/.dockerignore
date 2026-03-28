@@ -1,0 +1,24 @@
+# Build and IDE directories
+target/
+.idea/
+.vscode/
+
+# Maven (since Docker uses its own maven image)
+.mvn/
+mvnw
+mvnw.cmd
+
+# Git
+.git/
+.gitignore
+
+# Docker
+dockerfile
+docker-compose.yml
+
+# Logs and temp files
+*.log
+UserswingaAppDataLocalTemp/
+
+# Documentations
+HELP.md
