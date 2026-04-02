@@ -40,24 +40,28 @@ export class AboutUs implements OnInit {
   `;
 
   private fallbackImages = [
+    //Esquerda superior
     {
-      desktop: 'assets/images/fallbacks/about-us/desktop/esquerda_superior.webp',
-      mobile: 'assets/images/fallbacks/about-us/mobile/esquerda_superior.webp',
+      desktop: 'https://picsum.photos/320/213.webp',
+      mobile: 'https://picsum.photos/250/166.webp',
       altText: ''
     },
+    //Esquerda inferior
     {
-      desktop: 'assets/images/fallbacks/about-us/desktop/esquerda_inferior.webp',
-      mobile: 'assets/images/fallbacks/about-us/mobile/esquerda_inferior.webp',
+      desktop: 'https://picsum.photos/320/213.webp',
+      mobile: 'https://picsum.photos/250/166.webp',
       altText: ''
     },
+    //Direita vertical
     {
-      desktop: 'assets/images/fallbacks/about-us/desktop/direita_vertical.webp',
-      mobile: 'assets/images/fallbacks/about-us/mobile/direita_vertical.webp',
+      desktop: 'https://picsum.photos/320/450.webp',
+      mobile: 'https://picsum.photos/250/351.webp',
       altText: ''
     },
+    //Inferior horizontal
     {
-      desktop: 'assets/images/fallbacks/about-us/desktop/inferior_horizontal.webp',
-      mobile: 'assets/images/fallbacks/about-us/mobile/inferior_horizontal.webp',
+      desktop: 'https://picsum.photos/640/260.webp',
+      mobile: 'https://picsum.photos/500/203.webp',
       altText: ''
     }
   ];

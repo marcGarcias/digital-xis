@@ -48,8 +48,8 @@ export class Carousel implements OnInit, OnDestroy, AfterViewInit {
 
   fallbackSlides = [
     {
-      desktop: 'assets/images/fallbacks/carousel/desktop/carrocel.webp',
-      mobile: 'assets/images/fallbacks/carousel/mobile/carrocel.webp',
+      desktop: 'https://picsum.photos/1100/309.webp',
+      mobile: 'https://picsum.photos/375/106.webp',
       altText: ''
     }
   ];
