@@ -42,26 +42,26 @@ export class AboutUs implements OnInit {
   private fallbackImages = [
     //Esquerda superior
     {
-      desktop: 'https://picsum.photos/320/213.webp',
-      mobile: 'https://picsum.photos/250/166.webp',
+      desktop: 'https://picsum.photos/320/213.webp?random=1',
+      mobile: 'https://picsum.photos/250/166.webp?random=2',
       altText: ''
     },
     //Esquerda inferior
     {
-      desktop: 'https://picsum.photos/320/213.webp',
-      mobile: 'https://picsum.photos/250/166.webp',
+      desktop: 'https://picsum.photos/320/213.webp?random=3',
+      mobile: 'https://picsum.photos/250/166.webp?random=4',
       altText: ''
     },
     //Direita vertical
     {
-      desktop: 'https://picsum.photos/320/450.webp',
-      mobile: 'https://picsum.photos/250/351.webp',
+      desktop: 'https://picsum.photos/320/450.webp?random=5',
+      mobile: 'https://picsum.photos/250/351.webp?random=6',
       altText: ''
     },
     //Inferior horizontal
     {
-      desktop: 'https://picsum.photos/640/260.webp',
-      mobile: 'https://picsum.photos/500/203.webp',
+      desktop: 'https://picsum.photos/640/260.webp?random=7',
+      mobile: 'https://picsum.photos/500/203.webp?random=8',
       altText: ''
     }
   ];
