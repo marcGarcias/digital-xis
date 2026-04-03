@@ -39,13 +39,6 @@ export class App {
       `;
       this.renderer.appendChild(this.document.head, gtagInitScript);
     }
-
-    console.log(
-      "%cDeveloped by Marcelo Garcias \n%chttps://marcelogarcias.dev.br\n%cdev.garcias@proton.me",
-      "font-size:14px;font-weight:bold;color:#c9a84c;",
-      "color:#888;",
-      "color:#888;"
-    );
   }
 
 }
