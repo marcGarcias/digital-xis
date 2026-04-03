@@ -48,8 +48,18 @@ export class Carousel implements OnInit, OnDestroy, AfterViewInit {
 
   fallbackSlides = [
     {
-      desktop: 'https://picsum.photos/1100/309.webp',
-      mobile: 'https://picsum.photos/375/106.webp',
+      desktop: 'https://picsum.photos/1100/309.webp?random=9',
+      mobile: 'https://picsum.photos/375/106.webp?random=10',
+      altText: ''
+    },
+    {
+      desktop: 'https://picsum.photos/1100/309.webp?random=11',
+      mobile: 'https://picsum.photos/375/106.webp?random=12',
+      altText: ''
+    },
+    {
+      desktop: 'https://picsum.photos/1100/309.webp?random=13',
+      mobile: 'https://picsum.photos/375/106.webp?random=14',
       altText: ''
     }
   ];
