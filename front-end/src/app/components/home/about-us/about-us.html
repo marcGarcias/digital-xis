@@ -1,0 +1,24 @@
+<section class="about-us-container">
+
+  <app-image-layout *ngIf="imagens.length === 4" [imagens]="imagens" [loading]="loading">
+  </app-image-layout>
+
+  <div class="text-flow" [class.centralizado]="imagens.length < 4">
+
+    <span class="eyebrow">Sobre nós</span>
+    <h2 class="category-title">Quem está por trás do seu crescimento</h2>
+
+    <div class="category-text" *ngIf="!loading; else textSkeleton" [innerHTML]="aboutText"></div>
+
+    <ng-template #textSkeleton>
+      <div class="text-skeleton">
+        <div class="skeleton-line"><div class="shimmer"></div></div>
+        <div class="skeleton-line"><div class="shimmer"></div></div>
+        <div class="skeleton-line"><div class="shimmer"></div></div>
+        <div class="skeleton-line short"><div class="shimmer"></div></div>
+      </div>
+    </ng-template>
+
+  </div>
+
+</section>

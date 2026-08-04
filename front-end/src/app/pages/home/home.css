@@ -1,0 +1,35 @@
+.hero-block {
+  padding: clamp(64px, 10vw, 76px) 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 420px;
+  background: radial-gradient(60% 100% at 15% 0%, var(--color-brand-soft) 0%, transparent 70%);
+  opacity: .55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-faq-wrapper {
+  width: min(1180px, 100% - 48px);
+  margin-inline: auto;
+  padding: clamp(56px, 8vw, 96px) 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .contact-faq-wrapper {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 64px;
+  }
+}

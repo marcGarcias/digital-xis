@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.nav-desktop ul {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-desktop a {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  padding: 6px 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .2s var(--ease);
+}
+
+.nav-desktop a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--color-brand);
+  transition: width .25s var(--ease);
+}
+
+.nav-desktop a:hover {
+  color: var(--ink);
+}
+
+.nav-desktop a:hover::after {
+  width: 100%;
+}

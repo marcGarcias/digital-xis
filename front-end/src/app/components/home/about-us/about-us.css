@@ -1,0 +1,123 @@
+/* ===========================
+   ABOUT US CONTAINER
+   =========================== */
+:host {
+  display: block;
+  padding: clamp(56px, 8vw, 96px) 0;
+}
+
+.about-us-container {
+  width: min(1180px, 100% - 48px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .about-us-container {
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 72px;
+  }
+}
+
+/* ===========================
+   IMAGE LAYOUT
+   =========================== */
+.image-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  gap: 14px;
+}
+
+.image-layout .img {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg-alt);
+  box-shadow: var(--shadow-sm);
+}
+
+.image-layout img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.area-small-1,
+.area-small-2 {
+  aspect-ratio: 250/166;
+}
+
+.area-medium {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  aspect-ratio: 250/351;
+}
+
+.area-large {
+  grid-column: 1 / 3;
+  aspect-ratio: 500/203;
+}
+
+/* ===========================
+   TEXT FLOW
+   =========================== */
+.text-flow .category-title {
+  max-width: 480px;
+}
+
+.text-flow .category-text br {
+  display: none;
+}
+
+.text-flow .category-text p + p {
+  margin-top: 18px;
+}
+
+.centralizado {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+/* ===========================
+   SKELETON TEXT
+   =========================== */
+.text-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-line {
+  height: 18px;
+  background: var(--bg-alt);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+.text-skeleton .shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 204, 0, 0.12) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

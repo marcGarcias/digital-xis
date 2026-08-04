@@ -1,0 +1,94 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin-top: 56px;
+}
+
+.carousel {
+  width: min(1180px, 100% - 48px);
+  margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform .6s var(--ease);
+  touch-action: pan-y;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 768 / 320;
+  background: var(--dark);
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    aspect-ratio: 1100 / 400;
+  }
+}
+
+.carousel-item picture,
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  all: unset;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  transition: all .3s var(--ease);
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: var(--color-brand);
+  width: 26px;
+  border-radius: 5px;
+}
+
+/* Skeleton */
+.carousel-skeleton {
+  width: min(1180px, 100% - 48px);
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 1100 / 400;
+  background: var(--bg-alt);
+}
+
+.skeleton-shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 204, 0, 0.12) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
